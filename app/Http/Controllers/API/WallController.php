@@ -28,7 +28,7 @@ class WallController extends Controller
      */
     public function store(NewPost $request)
     {
-        $post = Post::create([
+        $post = $request->user()->posts()->create([
             'title'         => $request->title,
             'description'   => $request->description,
         ]);

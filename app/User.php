@@ -34,6 +34,16 @@ class User extends Authenticatable implements JWTSubject
     ];
 
     /**
+     * Post relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(\App\Post::class);
+    }
+
+    /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
      * @return mixed
