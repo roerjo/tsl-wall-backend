@@ -24,6 +24,17 @@ class User extends Authenticatable implements JWTSubject
         'level',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($user) {
+            if ($user->isDirty('password')) {
+                $user->password = bcrypt($user->password);
+            }
+        });
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
