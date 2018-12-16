@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\PostCreated;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -15,6 +16,20 @@ class Post extends Model
         'title',
         'description',
     ];
+
+    /**
+     * Model events handling
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($post) {
+            event(new PostCreated($post));
+        });
+    }
 
     /**
      * User relationship

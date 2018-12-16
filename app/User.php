@@ -24,6 +24,11 @@ class User extends Authenticatable implements JWTSubject
         'level',
     ];
 
+    /**
+     * Model events handling
+     *
+     * @return void
+     */
     protected static function boot()
     {
         parent::boot();
