@@ -20,6 +20,7 @@ This is the backend portion of the project and it is built with the following co
 - Run `composer install`
 - Generate `APP_KEY` via `php artisan generate:key`
 - Setup the `.env` file
+- Run `php artisan jwt:secret`
 - Check permissions on `storage/logs`
 
 After the able is fininshed, the application should be accessible via a local server which can be started via `php artisan serve`.
